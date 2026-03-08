@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe | Personal Portfolio</title>
+    <title>Poorvika N | Software Engineer Portfolio</title>
+    <meta name="description" content="Poorvika N — Software Engineer specializing in web development, Python, and database management. View my projects, skills, and experience.">
     <!-- Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,16 +13,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Navbar -->
     <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#home" class="logo">JD<span>.</span></a>
+            <a href="#home" class="logo">PN<span>.</span></a>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -34,6 +39,8 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero section">
+            <!-- Particle Canvas Background -->
+            <canvas id="particleCanvas" class="particle-canvas"></canvas>
             <!-- Decorative background elements -->
             <div class="blob shape-1"></div>
             <div class="blob shape-2"></div>
@@ -42,25 +49,25 @@
             <div class="container hero-container grid-layout">
                 <div class="hero-content reveal-left">
                     <span class="greeting">Hi there, welcome to my portfolio! 👋</span>
-                    <h1 class="hero-title">I'm <span>John Doe</span></h1>
-                    <h2 class="hero-subtitle">MERN Stack Web Developer</h2>
+                    <h1 class="hero-title">I'm <span>Poorvika N</span></h1>
+                    <h2 class="hero-subtitle">
+                        <span id="typingText"></span><span class="typing-cursor">|</span>
+                    </h2>
                     <p class="hero-description">
-                        I specialize in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered web applications.
+                        Dynamic and results-oriented software engineer with a good foundation in programming and problem-solving, eager to contribute to innovative projects.
                     </p>
                     <div class="hero-cta">
                         <a href="#projects" class="btn btn-primary">View My Work</a>
                         <a href="#contact" class="btn btn-secondary">Contact Me</a>
                     </div>
                     <div class="social-links">
-                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:poorvin458@gmail.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/4mh23cs107-hub" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/poorvika-n" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <!-- Optional: Image placeholder or 3D illustration could go here -->
                 <div class="hero-image reveal-right">
                     <div class="image-wrapper">
-                        <!-- We use an abstract gradient div or image placeholder -->
                         <div class="placeholder-img glass-effect">
                             <i class="fas fa-code abstract-icon"></i>
                         </div>
@@ -79,25 +86,30 @@
                 <div class="about-container grid-layout">
                     <div class="about-text reveal-left">
                         <p>
-                            Hello! My name is John and I enjoy creating things that live on the internet. My interest in web development started back in 2018 when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS taught me a lot about HTML & CSS!
+                            Hello! I'm <strong>Poorvika N</strong>, a passionate Computer Science Engineering student at Maharaja Institute of Technology, Mysore. I love building things that live on the internet and solving complex problems with clean, efficient code.
                         </p>
                         <p>
-                            Fast-forward to today, and I've had the privilege of working at an advertising agency, a start-up, and a huge corporation. My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
+                            I have a proven ability to collaborate with multidisciplinary teams and adapt to fast-paced work environments, ensuring timely delivery of quality software solutions. My interests span web development, database management, and software engineering.
                         </p>
+                        <div class="about-details">
+                            <div class="detail-item"><i class="fas fa-calendar-alt"></i> <span>Born: July 12, 2005</span></div>
+                            <div class="detail-item"><i class="fas fa-map-marker-alt"></i> <span>Holenarasipura, Hassan 573211</span></div>
+                            <div class="detail-item"><i class="fas fa-envelope"></i> <span>poorvin458@gmail.com</span></div>
+                        </div>
                         <a href="#" class="btn btn-primary outline mt-4">Download Resume <i class="fas fa-download"></i></a>
                     </div>
                     <div class="about-stats reveal-right">
                         <div class="stat-card glass-effect">
-                            <h3>3+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat-card glass-effect">
-                            <h3>20+</h3>
+                            <h3 data-count="10">0</h3>
                             <p>Projects Completed</p>
                         </div>
                         <div class="stat-card glass-effect">
-                            <h3>15+</h3>
-                            <p>Happy Clients</p>
+                            <h3 data-count="5">0</h3>
+                            <p>Technologies Learned</p>
+                        </div>
+                        <div class="stat-card glass-effect">
+                            <h3 data-count="2">0</h3>
+                            <p>Years of Study</p>
                         </div>
                     </div>
                 </div>
@@ -113,33 +125,34 @@
                 </div>
                 <div class="skills-grid reveal-up">
                     <div class="skill-category glass-effect">
-                        <h3 class="category-title"><i class="fas fa-laptop-code"></i> Frontend</h3>
+                        <h3 class="category-title"><i class="fas fa-laptop-code"></i> Technical Skills</h3>
                         <ul class="skill-list">
-                            <li><i class="fab fa-html5 skill-icon html"></i> HTML5</li>
-                            <li><i class="fab fa-css3-alt skill-icon css"></i> CSS3 / SCSS</li>
-                            <li><i class="fab fa-js skill-icon js"></i> JavaScript (ES6+)</li>
-                            <li><i class="fab fa-react skill-icon react"></i> React & Next.js</li>
-                            <li><i class="fab fa-vuejs skill-icon vue"></i> Vue.js</li>
+                            <li><i class="fas fa-code skill-icon" style="color:#3b82f6;"></i> Programming</li>
+                            <li><i class="fas fa-cogs skill-icon" style="color:#8b5cf6;"></i> Software Development</li>
+                            <li><i class="fas fa-database skill-icon" style="color:#06b6d4;"></i> Database Management</li>
+                            <li><i class="fab fa-html5 skill-icon html"></i> HTML5 & CSS3</li>
+                            <li><i class="fab fa-js skill-icon js"></i> JavaScript</li>
+                            <li><i class="fab fa-python skill-icon python"></i> Python</li>
                         </ul>
                     </div>
                     
                     <div class="skill-category glass-effect">
-                        <h3 class="category-title"><i class="fas fa-server"></i> Backend</h3>
+                        <h3 class="category-title"><i class="fas fa-brain"></i> Core Strengths</h3>
                         <ul class="skill-list">
-                            <li><i class="fab fa-node-js skill-icon node"></i> Node.js & Express</li>
-                            <li><i class="fab fa-python skill-icon python"></i> Python & Django</li>
-                            <li><i class="fas fa-database skill-icon db"></i> MongoDB</li>
-                            <li><i class="fas fa-server skill-icon postgres"></i> PostgreSQL</li>
+                            <li><i class="fas fa-puzzle-piece skill-icon" style="color:#f59e0b;"></i> Problem Solving</li>
+                            <li><i class="fas fa-users skill-icon" style="color:#10b981;"></i> Team Collaboration</li>
+                            <li><i class="fas fa-bullseye skill-icon" style="color:#ef4444;"></i> Results-Oriented</li>
+                            <li><i class="fas fa-clock skill-icon" style="color:#06b6d4;"></i> Time Management</li>
                         </ul>
                     </div>
 
                     <div class="skill-category glass-effect">
-                        <h3 class="category-title"><i class="fas fa-tools"></i> Tools & Others</h3>
+                        <h3 class="category-title"><i class="fas fa-palette"></i> Hobbies & Languages</h3>
                         <ul class="skill-list">
-                            <li><i class="fab fa-git-alt skill-icon git"></i> Git & GitHub</li>
-                            <li><i class="fab fa-docker skill-icon docker"></i> Docker</li>
-                            <li><i class="fab fa-aws skill-icon aws"></i> AWS</li>
-                            <li><i class="fab fa-figma skill-icon figma"></i> Figma</li>
+                            <li><i class="fas fa-language skill-icon" style="color:#8b5cf6;"></i> English (Fluent)</li>
+                            <li><i class="fas fa-pencil-alt skill-icon" style="color:#f59e0b;"></i> Sketching</li>
+                            <li><i class="fas fa-plane skill-icon" style="color:#3b82f6;"></i> Travelling</li>
+                            <li><i class="fas fa-book-reader skill-icon" style="color:#10b981;"></i> Continuous Learning</li>
                         </ul>
                     </div>
                 </div>
@@ -153,70 +166,222 @@
                     <h2 class="section-title">Featured Projects</h2>
                     <div class="separator"></div>
                 </div>
+
+                <!-- Filter Tabs -->
+                <div class="filter-tabs reveal-up">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                    <button class="filter-btn" data-filter="python">Python</button>
+                    <button class="filter-btn" data-filter="database">Database</button>
+                </div>
+
                 <div class="projects-grid">
                     <!-- Project 1 -->
-                    <div class="project-card glass-effect reveal-up">
+                    <div class="project-card glass-effect reveal-up" data-category="web"
+                         data-title="Student Portfolio Website"
+                         data-desc="A fully responsive personal portfolio website built from scratch with modern design, smooth scroll animations, glassmorphism effects, and interactive elements. Features include a particle canvas background, typing animation, and project filtering."
+                         data-tech="HTML5, CSS3, JavaScript"
+                         data-features="Responsive Design, Scroll Animations, Glassmorphism UI, Particle Background, Contact Form">
                         <div class="project-img-wrapper">
                             <div class="project-placeholder purple-gradient">
-                                <i class="fas fa-shopping-cart"></i>
+                                <i class="fas fa-user-circle"></i>
                             </div>
                         </div>
                         <div class="project-info">
                             <div class="project-tags">
-                                <span>React</span>
-                                <span>Node.js</span>
-                                <span>MongoDB</span>
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
                             </div>
-                            <h3 class="project-title">E-Commerce Platform</h3>
-                            <p class="project-desc">A full-stack e-commerce solution with integrated payment gateway, admin dashboard, and user authentication.</p>
+                            <h3 class="project-title">Student Portfolio Website</h3>
+                            <p class="project-desc">Personal portfolio with animations, glassmorphism design, and responsive layout.</p>
                             <div class="project-links">
                                 <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="#" class="view-details-btn"><i class="fas fa-eye"></i> Details</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="project-card glass-effect reveal-up" style="transition-delay: 100ms;">
+                    <div class="project-card glass-effect reveal-up" data-category="web database" style="transition-delay: 100ms;"
+                         data-title="Expense Tracker"
+                         data-desc="A full-stack expense tracking application with CRUD operations, enabling users to add, edit, and delete expenses with category-based filtering. Built with a PHP backend and MySQL database for persistent storage."
+                         data-tech="HTML, CSS, PHP, MySQL"
+                         data-features="CRUD Operations, Category Filtering, Persistent Storage, Responsive UI, Data Validation">
                         <div class="project-img-wrapper">
                             <div class="project-placeholder blue-gradient">
-                                <i class="fas fa-tasks"></i>
+                                <i class="fas fa-wallet"></i>
                             </div>
                         </div>
                         <div class="project-info">
                             <div class="project-tags">
-                                <span>Vanilla JS</span>
-                                <span>CSS3</span>
-                                <span>LocalStorage</span>
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>PHP</span>
                             </div>
-                            <h3 class="project-title">Task Management App</h3>
-                            <p class="project-desc">A beautiful, drag-and-drop task management interface inspired by Kanban boards. Lightweight and fast.</p>
+                            <h3 class="project-title">Expense Tracker</h3>
+                            <p class="project-desc">Full-stack expense tracking app with CRUD operations and category filtering.</p>
                             <div class="project-links">
                                 <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="#" class="view-details-btn"><i class="fas fa-eye"></i> Details</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
-                    <div class="project-card glass-effect reveal-up" style="transition-delay: 200ms;">
+                    <div class="project-card glass-effect reveal-up" data-category="python" style="transition-delay: 200ms;"
+                         data-title="Weather Dashboard"
+                         data-desc="A Python-based weather dashboard that fetches real-time weather data from public APIs and displays current conditions, forecasts, and historical trends with visual charts and a clean terminal/web interface."
+                         data-tech="Python, REST API, JSON"
+                         data-features="Real-Time Data, API Integration, Visual Charts, Error Handling, Multi-City Support">
                         <div class="project-img-wrapper">
                             <div class="project-placeholder teal-gradient">
-                                <i class="fas fa-chart-line"></i>
+                                <i class="fas fa-cloud-sun"></i>
                             </div>
                         </div>
                         <div class="project-info">
                             <div class="project-tags">
-                                <span>Vue.js</span>
-                                <span>Firebase</span>
-                                <span>Chart.js</span>
+                                <span>Python</span>
+                                <span>API</span>
                             </div>
-                            <h3 class="project-title">Analytics Dashboard</h3>
-                            <p class="project-desc">Real-time data visualization dashboard with customizable widgets, dark mode, and export functionality.</p>
+                            <h3 class="project-title">Weather Dashboard</h3>
+                            <p class="project-desc">Real-time weather data visualization with API integration and forecast charts.</p>
                             <div class="project-links">
                                 <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
-                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="#" class="view-details-btn"><i class="fas fa-eye"></i> Details</a>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card glass-effect reveal-up" data-category="python database"
+                         data-title="Library Management System"
+                         data-desc="A comprehensive library management application built with Python and SQLite. Features include book catalog management, search functionality, borrowing/return tracking, and member management with a user-friendly interface."
+                         data-tech="Python, SQLite, Tkinter"
+                         data-features="Book Catalog, Search & Filter, Borrow/Return Tracking, Member Management, Report Generation">
+                        <div class="project-img-wrapper">
+                            <div class="project-placeholder amber-gradient">
+                                <i class="fas fa-book"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>SQLite</span>
+                            </div>
+                            <h3 class="project-title">Library Management System</h3>
+                            <p class="project-desc">Book catalog with search, borrowing features, and member management system.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                <a href="#" class="view-details-btn"><i class="fas fa-eye"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card glass-effect reveal-up" data-category="web" style="transition-delay: 100ms;"
+                         data-title="Quiz Application"
+                         data-desc="An interactive quiz application with multiple-choice questions, a countdown timer, score tracking, and instant feedback. Features a beautiful UI with progress indicators and result summaries at the end of each quiz session."
+                         data-tech="JavaScript, HTML5, CSS3"
+                         data-features="Timer, Score Tracking, Instant Feedback, Progress Bar, Result Summary">
+                        <div class="project-img-wrapper">
+                            <div class="project-placeholder rose-gradient">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span>JavaScript</span>
+                                <span>CSS</span>
+                            </div>
+                            <h3 class="project-title">Quiz Application</h3>
+                            <p class="project-desc">Interactive quiz with timer, score tracking, and beautiful result summaries.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                <a href="#" class="view-details-btn"><i class="fas fa-eye"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card glass-effect reveal-up" data-category="database web" style="transition-delay: 200ms;"
+                         data-title="Database CRUD App"
+                         data-desc="A complete CRUD (Create, Read, Update, Delete) web application with a PHP backend and MySQL database. Includes an admin panel for data management, search functionality, pagination, and data export capabilities."
+                         data-tech="PHP, MySQL, HTML, CSS"
+                         data-features="Admin Panel, CRUD Operations, Search & Pagination, Data Export, Input Validation">
+                        <div class="project-img-wrapper">
+                            <div class="project-placeholder emerald-gradient">
+                                <i class="fas fa-database"></i>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                            </div>
+                            <h3 class="project-title">Database CRUD App</h3>
+                            <p class="project-desc">Complete CRUD operations with admin panel, search, and data export features.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
+                                <a href="#" class="view-details-btn"><i class="fas fa-eye"></i> Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modal -->
+        <div class="project-modal-overlay" id="projectModal">
+            <div class="project-modal glass-effect">
+                <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+                <h3 class="modal-title" id="modalTitle">Project Title</h3>
+                <div class="modal-separator"></div>
+                <p class="modal-desc" id="modalDesc">Project description goes here.</p>
+                <div class="modal-section">
+                    <h4><i class="fas fa-cogs"></i> Technologies</h4>
+                    <div class="modal-tags" id="modalTech"></div>
+                </div>
+                <div class="modal-section">
+                    <h4><i class="fas fa-star"></i> Key Features</h4>
+                    <ul class="modal-features" id="modalFeatures"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <section id="education" class="education section">
+            <div class="container">
+                <div class="section-heading reveal-up">
+                    <h2 class="section-title">Education</h2>
+                    <div class="separator"></div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item reveal-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-effect">
+                            <span class="timeline-date">Sep 2023 — Jul 2027</span>
+                            <h3>Bachelor of Engineering in Computer Science (CSE)</h3>
+                            <h4>Maharaja Institute of Technology, Mysore</h4>
+                            <p>Currently pursuing Bachelor of Engineering in the stream Computer Science. Focused on programming, software development, and database management.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-effect">
+                            <span class="timeline-date">Oct 2021 — Apr 2023</span>
+                            <h3>Senior Secondary Education (PUC)</h3>
+                            <h4>New Girls Government Independent PU College, Holenarasipura</h4>
+                            <p>Completed pre-university education with a focus on science stream, building strong fundamentals in mathematics and physics.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glass-effect">
+                            <span class="timeline-date">Completed 2021</span>
+                            <h3>Secondary School Leaving Certificate</h3>
+                            <h4>Adarsha Vidyalaya (RMSA), Holenarasipura</h4>
+                            <p>Completed secondary schooling with excellent academic performance and participation in extracurricular activities.</p>
                         </div>
                     </div>
                 </div>
@@ -229,7 +394,7 @@
                 <div class="section-heading reveal-up">
                     <h2 class="section-title">Get In Touch</h2>
                     <div class="separator"></div>
-                    <p class="contact-subtitle">Currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                    <p class="contact-subtitle">Currently open to new opportunities and collaborations. Whether you have a project idea or just want to connect, feel free to reach out!</p>
                 </div>
                 
                 <div class="contact-content grid-layout reveal-up">
@@ -238,21 +403,21 @@
                             <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
                             <div>
                                 <h4>Location</h4>
-                                <p>San Francisco, CA</p>
+                                <p>Holenarasipura, Hassan 573211</p>
                             </div>
                         </div>
                         <div class="info-item">
                             <div class="icon-box"><i class="fas fa-envelope"></i></div>
                             <div>
                                 <h4>Email</h4>
-                                <a href="mailto:hello@example.com">hello@example.com</a>
+                                <a href="mailto:poorvin458@gmail.com">poorvin458@gmail.com</a>
                             </div>
                         </div>
                         <div class="info-item">
                             <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
                             <div>
                                 <h4>Call Me</h4>
-                                <a href="tel:+1234567890">+1 (234) 567-890</a>
+                                <a href="tel:+918197644689">+91 8197644689</a>
                             </div>
                         </div>
                     </div>
@@ -277,17 +442,22 @@
         </section>
     </main>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <a href="#home" class="logo">JD<span>.</span></a>
+                <a href="#home" class="logo">PN<span>.</span></a>
                 <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-codepen"></i></a>
+                    <a href="mailto:poorvin458@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/4mh23cs107-hub" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/poorvika-n" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-                <p class="copyright">&copy; 2026 John Doe. Built from scratch.</p>
+                <p class="copyright">&copy; 2026 Poorvika N. Built with ❤️</p>
             </div>
         </div>
     </footer>
