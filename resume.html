@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poorvika N - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a2e;
+            background: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 50px;
+            line-height: 1.6;
+        }
+
+        .resume-container {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 40px;
+        }
+
+        /* Left sidebar */
+        .sidebar { border-right: 2px solid #eee; padding-right: 30px; }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #6c3fb5;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-section { margin-bottom: 28px; }
+
+        .sidebar-section p,
+        .sidebar-section li {
+            font-size: 12.5px;
+            color: #444;
+            margin-bottom: 4px;
+        }
+
+        .sidebar-section strong { color: #1a1a2e; font-weight: 600; }
+
+        .skill-tag {
+            display: inline-block;
+            background: #f0edf6;
+            color: #444;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11.5px;
+            margin: 3px 2px;
+            border: 1px solid #e0dce8;
+        }
+
+        .education-item { margin-bottom: 14px; }
+        .education-item h4 { font-size: 13px; font-weight: 600; color: #1a1a2e; }
+        .education-item p { font-size: 11.5px; color: #666; font-style: italic; }
+        .education-item .year { font-size: 11px; color: #999; }
+
+        /* Main content */
+        .main-content h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+
+        .summary {
+            font-size: 13.5px;
+            color: #444;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .main-section { margin-bottom: 28px; }
+
+        .main-section .section-title {
+            border-bottom: 2px solid #6c3fb5;
+            padding-bottom: 6px;
+            margin-bottom: 18px;
+        }
+
+        .project { margin-bottom: 18px; }
+        .project h4 { font-size: 14px; font-weight: 600; color: #1a1a2e; margin-bottom: 4px; }
+        .project p { font-size: 12.5px; color: #444; line-height: 1.6; }
+
+        /* Print styles */
+        @media print {
+            body { padding: 20px 30px; }
+            @page { margin: 0.5in; size: A4; }
+        }
+
+        /* Auto-download trigger */
+        .download-notice {
+            text-align: center;
+            padding: 16px;
+            background: linear-gradient(135deg, #6c3fb5, #3b82f6);
+            color: #fff;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .download-notice a {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="download-notice">
+        Your download should start automatically. If not, <a href="#" onclick="window.print(); return false;">click here to save as PDF</a> or press <strong>Ctrl+P</strong>.
+    </div>
+
+    <div class="resume-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <h3 class="section-title">Contact</h3>
+                <p><strong>Email:</strong><br>poorvin458@gmail.com</p>
+                <br>
+                <p><strong>Location:</strong><br>Holenarasipura, Hassan(D)</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="section-title">Skills</h3>
+                <span class="skill-tag">Communication skills</span>
+                <span class="skill-tag">Problem Solving</span>
+                <span class="skill-tag">Database Management system</span>
+                <span class="skill-tag">Logical Thinking</span>
+                <span class="skill-tag">Basics of Programming</span>
+                <span class="skill-tag">MS World, Powerpoint</span>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="section-title">Education</h3>
+                <div class="education-item">
+                    <h4>Bachelor of Engineering</h4>
+                    <p>Maharaja Institute of Technology Mysore</p>
+                    <span class="year">2027</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Poorvika N</h1>
+            <p class="summary">
+                Dynamic and Results-oriented Engineer with good foundation in programming and problem-solving, eager to contribute to innovative projects. Proven ability to collaborate with multidisciplinary teams and adapt to fast-paced work environments, ensuring timely delivery of quality software solutions.
+            </p>
+
+            <div class="main-section">
+                <h3 class="section-title">Projects</h3>
+
+                <div class="project">
+                    <h4>Expense Tracker System</h4>
+                    <p>The Expense Tracker System is a web-based application designed to help users manage their daily expenses effectively. The system allows users to enter expense details such as amount, date, description, and category. It automatically calculates the total spending and displays category-wise expense breakdown with percentages. Users can also view recent expenses and monitor their monthly spending.</p>
+                </div>
+
+                <div class="project">
+                    <h4>Credit Card Transaction Fraud Detection</h4>
+                    <p>The Credit Card Transaction Fraud Detection project is designed to identify fraudulent transactions and protect users from financial loss. The system analyzes transaction data and detects unusual patterns using machine learning techniques. Each transaction is checked based on factors such as amount, time, and behavior patterns. If a transaction appears suspicious, it is marked as fraud.</p>
+                </div>
+
+                <div class="project">
+                    <h4>AI Trip Planner</h4>
+                    <p>The AI Trip Planner is a web-based application developed using JavaScript that helps users plan their trips easily and efficiently. The system allows users to enter details such as destination, travel dates, budget, and preferences. Based on this input, the AI generates a personalized travel plan including places to visit, daily schedules, and basic travel suggestions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-trigger print dialog for PDF download
+        window.addEventListener('load', () => {
+            setTimeout(() => { window.print(); }, 800);
+        });
+    </script>
+</body>
+</html>

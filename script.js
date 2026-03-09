@@ -381,29 +381,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =====================================
-    // Form Submission (Prevent default for demo)
+    // Contact Form — EmailJS Integration
     // =====================================
-    const contactForm = document.querySelector('.contact-form');
+    // SETUP: Go to https://www.emailjs.com/ and:
+    // 1. Create a free account
+    // 2. Add an Email Service (e.g., Gmail) — note the Service ID
+    // 3. Create an Email Template with variables: {{from_name}}, {{from_email}}, {{subject}}, {{message}}
+    // 4. Copy your Public Key from Account > API Keys
+    // 5. Replace the 3 values below:
+
+    const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';      // ← Replace with your EmailJS Public Key
+    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';      // ← Replace with your EmailJS Service ID
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';    // ← Replace with your EmailJS Template ID
+
+    // Initialize EmailJS
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+
+    const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const btn = contactForm.querySelector('button');
             const originalText = btn.innerHTML;
-            
+
             btn.innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
             btn.style.opacity = '0.7';
-            
-            setTimeout(() => {
-                btn.innerHTML = 'Message Sent! <i class="fas fa-check"></i>';
-                btn.style.background = '#10b981';
-                btn.style.opacity = '1';
-                contactForm.reset();
-                
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = '';
-                }, 3000);
-            }, 1500);
+            btn.disabled = true;
+
+            emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, contactForm)
+                .then(() => {
+                    btn.innerHTML = 'Message Sent! <i class="fas fa-check"></i>';
+                    btn.style.background = '#10b981';
+                    btn.style.opacity = '1';
+                    btn.disabled = false;
+                    contactForm.reset();
+
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.background = '';
+                    }, 3000);
+                })
+                .catch((error) => {
+                    console.error('EmailJS Error:', error);
+                    btn.innerHTML = 'Failed to send <i class="fas fa-exclamation-triangle"></i>';
+                    btn.style.background = '#ef4444';
+                    btn.style.opacity = '1';
+                    btn.disabled = false;
+
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.background = '';
+                    }, 3000);
+                });
         });
     }
 
